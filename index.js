@@ -20,7 +20,7 @@ function setupServer(db) {
     });
   });
 
-  app.get("/streets/:street/", (req, res) => {
+  app.get("/streets/:street/", validateJwt, (req, res) => {
     let streetName = req.params.street;
     // query based on street
     // NOTE: this is open to SQL injection attack
